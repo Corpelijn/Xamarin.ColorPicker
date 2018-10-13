@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <RootNamespace>CoBa.Xam</RootNamespace>
+    <AssemblyName>CoBa.Xam.ColorPicker</AssemblyName>
+    <Version>0.1.0</Version>
+    <Authors>B. Corpelijn</Authors>
+    <Company />
+    <Description>ColorPicker control for Xamarin.Forms</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="spectrum.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="spectrum.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.3" />
+    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Controls\ColorPicker.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Controls\ColorPicker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

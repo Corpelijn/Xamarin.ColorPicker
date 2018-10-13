@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:color="clr-namespace:CoBa.Xam.Controls;assembly=CoBa.Xam.ColorPicker"
+             xmlns:conv="clr-namespace:TestApp"
+             x:Class="TestApp.MainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:ColorConverter x:Key="colorToHex" />
+            <conv:ColorNegative x:Key="colorNegative"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout>
+        <Label BindingContext="{x:Reference page_color}"
+                Text="{Binding Color, Converter={StaticResource colorToHex}}"
+                FontSize="35"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                BackgroundColor="{Binding Color}"
+                TextColor="{Binding Color, Converter={StaticResource colorNegative}}"
+                WidthRequest="300"
+                HeightRequest="75"
+                HorizontalOptions="Center" />
+
+        <color:ColorPicker HeightRequest="400"
+                            WidthRequest="300"
+                            x:Name="page_color"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+    </StackLayout>
+
+</ContentPage>
